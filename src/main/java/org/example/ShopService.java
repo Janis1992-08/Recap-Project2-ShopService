@@ -6,11 +6,13 @@ import java.util.ArrayList;
 public class ShopService {
 
     private ProductRepo productRepo;
-    private OrderListRepo orderRepo;
+//    private OrderListRepo orderListRepo;
+    private OrderMapRepo orderMapRepo;
 
-    public ShopService(ProductRepo productRepo, OrderListRepo orderRepo) {
+    public ShopService(ProductRepo productRepo, OrderMapRepo orderMapRepo) {
         this.productRepo = productRepo;
-        this.orderRepo = orderRepo;
+//        this.orderListRepo = orderRepo;
+        this.orderMapRepo = orderMapRepo;
     }
 
     public void placeOrder(String orderId, List<String> productIds) {
@@ -26,7 +28,8 @@ public class ShopService {
         }
         Order order = new Order(orderId, products);
 
-        orderRepo.addOrder(order);
+//        orderListRepo.addOrder(order);
+        orderMapRepo.addOrder(order);
         System.out.println("Order placed successfully.");
     }
 
